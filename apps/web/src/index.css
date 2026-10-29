@@ -1182,9 +1182,20 @@ html[data-mobile-composer-route-transition="true"]::view-transition-old(t3-mobil
     --secondary-foreground: var(--color-neutral-100);
     --muted: --alpha(var(--color-white) / 3%);
     --muted-foreground: color-mix(in srgb, var(--color-neutral-500) 90%, var(--color-white));
-    --model-provider-label: rgb(151 151 151 / 89.2%);
+    --model-provider-label: --alpha(
+      color-mix(
+          in oklab,
+          color-mix(in oklab, #979797 var(--appearance-contrast-base), var(--background)),
+          var(--appearance-contrast-target) var(--appearance-contrast-boost)
+        ) /
+        89.2%
+    );
     --destructive-button: #de333d;
-    --checkbox-border: #71717b;
+    --checkbox-border: color-mix(
+      in srgb,
+      color-mix(in srgb, #71717b var(--appearance-contrast-base), transparent),
+      var(--foreground) var(--appearance-contrast-border-boost)
+    );
     --accent: --alpha(var(--color-white) / 4%);
     --accent-foreground: var(--color-neutral-100);
     --error: color-mix(in srgb, var(--color-red-500) 90%, var(--color-white));
