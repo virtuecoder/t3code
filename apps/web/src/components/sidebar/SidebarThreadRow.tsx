@@ -1108,7 +1108,7 @@ const SidebarThreadRow = memo(function SidebarThreadRow(props: SidebarThreadRowP
               className={cn(
                 "flex shrink-0 items-center transition-opacity",
                 (!props.isActive || variantAction === "unsettle") &&
-                  "opacity-40 grayscale group-focus-within/sidebar-row:opacity-100 group-focus-within/sidebar-row:grayscale-0 group-hover/sidebar-row:opacity-100 group-hover/sidebar-row:grayscale-0",
+                  "opacity-40 grayscale group-focus-within/sidebar-row:opacity-100 group-focus-within/sidebar-row:grayscale-0 group-hover/sidebar-row:opacity-100 group-hover/sidebar-row:grayscale-0 dark:opacity-100 dark:grayscale-0",
               )}
             >
               {props.project ? <ProjectFavicon project={props.project} className="size-4" /> : null}
@@ -1436,7 +1436,7 @@ const SidebarThreadRow = memo(function SidebarThreadRow(props: SidebarThreadRowP
               {thread.branch ? (
                 <>
                   <ThreadWorktreeIndicator thread={thread} />
-                  <span className="flex min-w-0 flex-1 text-muted-foreground/40 dark:text-secondary-label">
+                  <span className="flex min-w-0 flex-1 text-muted-foreground/40 dark:text-secondary-label/80">
                     <MiddleTruncate value={thread.branch} showTitle={false} />
                   </span>
                 </>
@@ -1445,9 +1445,9 @@ const SidebarThreadRow = memo(function SidebarThreadRow(props: SidebarThreadRowP
                   <EnvironmentMachineIcon
                     aria-hidden
                     kind={props.environmentMachine}
-                    className="size-3 shrink-0 text-muted-foreground/40 dark:text-secondary-label"
+                    className="size-3 shrink-0 text-muted-foreground/40 dark:text-secondary-label/80"
                   />
-                  <span className="min-w-0 flex-1 truncate text-muted-foreground/40 dark:text-secondary-label">
+                  <span className="min-w-0 flex-1 truncate text-muted-foreground/40 dark:text-secondary-label/80">
                     {props.scratchMachineLabel}
                   </span>
                 </>
@@ -1617,7 +1617,7 @@ export const SidebarSearchResultRow = memo(function SidebarSearchResultRow(props
                 props.isSettled &&
                   !props.isRouteActive &&
                   !props.isHighlighted &&
-                  "opacity-40 grayscale group-hover/sidebar-row:opacity-100 group-hover/sidebar-row:grayscale-0",
+                  "opacity-40 grayscale group-hover/sidebar-row:opacity-100 group-hover/sidebar-row:grayscale-0 dark:opacity-100 dark:grayscale-0",
               )}
             />
           ) : null}
