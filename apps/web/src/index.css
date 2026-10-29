@@ -243,11 +243,15 @@ html[data-mobile-composer-route-transition="true"]::view-transition-old(t3-mobil
   --color-destructive-foreground: var(--destructive-foreground);
   --color-ring: var(--ring);
   --color-input: var(--contrast-input);
+  --color-checkbox-border: var(--checkbox-border);
   --color-border: var(--contrast-border);
   --color-destructive: var(--destructive);
+  --color-destructive-button: var(--destructive-button);
+  --color-destructive-button-hover: var(--destructive-button-hover);
   --color-accent-foreground: var(--contrast-accent-foreground);
   --color-accent: var(--accent);
   --color-muted-foreground: var(--contrast-muted-foreground);
+  --color-model-provider-label: var(--model-provider-label);
   --color-muted: var(--muted);
   --color-placeholder: var(--contrast-placeholder);
   --color-secondary-label: var(--contrast-secondary-label);
@@ -1113,6 +1117,7 @@ html[data-mobile-composer-route-transition="true"]::view-transition-old(t3-mobil
   --muted-foreground: var(--color-zinc-500);
   --placeholder: var(--muted-foreground);
   --secondary-label: var(--muted-foreground);
+  --model-provider-label: --alpha(var(--contrast-muted-foreground) / 70%);
   --icon-muted: var(--muted-foreground);
   --message-surface: var(--accent);
   --message-foreground: var(--foreground);
@@ -1126,8 +1131,11 @@ html[data-mobile-composer-route-transition="true"]::view-transition-old(t3-mobil
   --tool-error-icon: var(--error);
   --error-surface: color-mix(in srgb, var(--error) 8%, transparent);
   --destructive: var(--error);
+  --destructive-button: #e5272d;
+  --destructive-button-hover: color-mix(in srgb, var(--destructive-button) 90%, black);
   --border: var(--color-zinc-200);
   --input: var(--color-zinc-300);
+  --checkbox-border: var(--contrast-input);
   --ring: var(--primary);
   --destructive-foreground: var(--error-foreground);
   --info: var(--color-blue-500);
@@ -1174,6 +1182,20 @@ html[data-mobile-composer-route-transition="true"]::view-transition-old(t3-mobil
     --secondary-foreground: var(--color-neutral-100);
     --muted: --alpha(var(--color-white) / 3%);
     --muted-foreground: color-mix(in srgb, var(--color-neutral-500) 90%, var(--color-white));
+    --model-provider-label: --alpha(
+      color-mix(
+          in oklab,
+          color-mix(in oklab, #979797 var(--appearance-contrast-base), var(--background)),
+          var(--appearance-contrast-target) var(--appearance-contrast-boost)
+        ) /
+        89.2%
+    );
+    --destructive-button: #de333d;
+    --checkbox-border: color-mix(
+      in srgb,
+      color-mix(in srgb, #71717b var(--appearance-contrast-base), transparent),
+      var(--foreground) var(--appearance-contrast-border-boost)
+    );
     --accent: --alpha(var(--color-white) / 4%);
     --accent-foreground: var(--color-neutral-100);
     --error: color-mix(in srgb, var(--color-red-500) 90%, var(--color-white));
@@ -1294,6 +1316,10 @@ html[data-theme-id]:not([data-theme-id=""]) {
   --error-surface: var(--app-theme-error-surface);
   --destructive: var(--error);
   --destructive-foreground: var(--error-foreground);
+  --destructive-button: var(--destructive);
+  --destructive-button-hover: --alpha(var(--destructive) / 90%);
+  --model-provider-label: --alpha(var(--contrast-muted-foreground) / 70%);
+  --checkbox-border: var(--contrast-input);
   --warning: var(--app-theme-warning);
   --warning-foreground: var(--app-theme-warning-foreground);
   --warning-surface: var(--app-theme-warning-surface);

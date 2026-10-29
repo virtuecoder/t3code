@@ -96,7 +96,7 @@ export const ModelListRow = memo(function ModelListRow(props: {
               className="size-3"
               iconClassName="size-3"
             />
-            <span className="truncate text-xs font-normal leading-snug text-muted-foreground/70">
+            <span className="truncate text-xs font-normal leading-snug text-model-provider-label">
               {providerLabel}
             </span>
           </div>
