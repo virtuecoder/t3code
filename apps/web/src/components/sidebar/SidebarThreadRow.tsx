@@ -885,7 +885,8 @@ const SidebarThreadRow = memo(function SidebarThreadRow(props: SidebarThreadRowP
 
   const rowSurfaceClassName = cn(
     "group/sidebar-row relative w-full cursor-pointer overflow-hidden rounded-md text-left outline-none select-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring",
-    variantAction === "unsettle" && "[&:not(:hover):not(:focus-within)_*]:text-secondary-label/70",
+    variantAction === "unsettle" &&
+      "[&:not(:hover):not(:focus-within)_*]:text-secondary-label/70 dark:[&:not(:hover):not(:focus-within)_*]:text-secondary-label",
     props.isActive
       ? "bg-sidebar-row-active text-sidebar-foreground"
       : isSelected || props.sweepAction !== null
@@ -897,7 +898,7 @@ const SidebarThreadRow = memo(function SidebarThreadRow(props: SidebarThreadRowP
             : "bg-transparent text-sidebar-foreground hover:bg-sidebar-row-hover",
     shouldRecede &&
       status === "working" &&
-      "opacity-70 transition-opacity hover:opacity-100 focus-within:opacity-100 motion-reduce:transition-none",
+      "opacity-70 transition-opacity hover:opacity-100 focus-within:opacity-100 motion-reduce:transition-none dark:opacity-100",
     isFileDragOver && "ring-1 ring-inset ring-primary/70",
     isFileDragOver && !props.isActive && !isSelected && "bg-sidebar-row-hover",
     props.sortable?.isDragging &&
@@ -977,12 +978,12 @@ const SidebarThreadRow = memo(function SidebarThreadRow(props: SidebarThreadRowP
             : cn(
                 "truncate group-focus-within/sidebar-row:text-foreground group-hover/sidebar-row:text-foreground",
                 shouldRecede
-                  ? "text-secondary-label/70"
+                  ? "text-secondary-label/70 dark:text-secondary-label"
                   : props.isActive || isWoke || status === "input"
                     ? "text-foreground"
                     : isUnread
                       ? "text-muted-foreground"
-                      : "text-secondary-label/70",
+                      : "text-secondary-label/70 dark:text-secondary-label",
               ),
           isRegeneratingTitle && "opacity-55",
         )}
@@ -1435,7 +1436,7 @@ const SidebarThreadRow = memo(function SidebarThreadRow(props: SidebarThreadRowP
               {thread.branch ? (
                 <>
                   <ThreadWorktreeIndicator thread={thread} />
-                  <span className="flex min-w-0 flex-1 text-muted-foreground/40">
+                  <span className="flex min-w-0 flex-1 text-muted-foreground/40 dark:text-secondary-label">
                     <MiddleTruncate value={thread.branch} showTitle={false} />
                   </span>
                 </>
@@ -1444,9 +1445,9 @@ const SidebarThreadRow = memo(function SidebarThreadRow(props: SidebarThreadRowP
                   <EnvironmentMachineIcon
                     aria-hidden
                     kind={props.environmentMachine}
-                    className="size-3 shrink-0 text-muted-foreground/40"
+                    className="size-3 shrink-0 text-muted-foreground/40 dark:text-secondary-label"
                   />
-                  <span className="min-w-0 flex-1 truncate text-muted-foreground/40">
+                  <span className="min-w-0 flex-1 truncate text-muted-foreground/40 dark:text-secondary-label">
                     {props.scratchMachineLabel}
                   </span>
                 </>
@@ -1626,7 +1627,7 @@ export const SidebarSearchResultRow = memo(function SidebarSearchResultRow(props
                 className={cn(
                   "min-w-0 flex-1 truncate",
                   props.isSettled
-                    ? "font-normal text-secondary-label/70 group-hover/sidebar-row:text-foreground"
+                    ? "font-normal text-secondary-label/70 dark:text-secondary-label group-hover/sidebar-row:text-foreground"
                     : "font-medium text-foreground",
                   (props.isHighlighted || props.isRouteActive) && "text-foreground",
                   thread.titleRegeneration != null && "opacity-55",
@@ -1642,7 +1643,7 @@ export const SidebarSearchResultRow = memo(function SidebarSearchResultRow(props
                   settled={props.isSettled}
                 />
               </span>
-              <span className="w-8 shrink-0 text-right text-xs text-muted-foreground/55 tabular-nums">
+              <span className="w-8 shrink-0 text-right text-xs text-muted-foreground/55 tabular-nums dark:text-secondary-label">
                 <RelativeTimeLabel timestamp={threadTimeTimestamp(thread)} />
               </span>
             </span>
