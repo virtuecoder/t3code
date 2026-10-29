@@ -899,6 +899,10 @@ const SidebarThreadRow = memo(function SidebarThreadRow(props: SidebarThreadRowP
     shouldRecede &&
       status === "working" &&
       "opacity-70 transition-opacity hover:opacity-100 focus-within:opacity-100 motion-reduce:transition-none dark:opacity-100",
+    variantAction !== "settle" &&
+      !props.isActive &&
+      !isSelected &&
+      "dark:opacity-80 dark:hover:opacity-100 dark:focus-within:opacity-100",
     isFileDragOver && "ring-1 ring-inset ring-primary/70",
     isFileDragOver && !props.isActive && !isSelected && "bg-sidebar-row-hover",
     props.sortable?.isDragging &&
@@ -1603,6 +1607,10 @@ export const SidebarSearchResultRow = memo(function SidebarSearchResultRow(props
                 props.isHighlighted || props.isRouteActive
                   ? "bg-sidebar-row-active text-sidebar-foreground"
                   : "text-sidebar-muted-foreground/75 hover:bg-sidebar-row-hover hover:text-sidebar-foreground",
+                props.isSettled &&
+                  !props.isHighlighted &&
+                  !props.isRouteActive &&
+                  "dark:opacity-80 dark:hover:opacity-100 dark:focus-within:opacity-100",
                 isFileDragOver && "ring-1 ring-inset ring-primary/70",
                 isFileDragOver && !props.isRouteActive && "bg-sidebar-row-hover",
               )}
